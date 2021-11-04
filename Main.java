@@ -6,6 +6,6 @@ class Main {
 
         new ReverseString().reverseString();
 
-        new ChangeDateFormat().DateConvert(new Date());
+        new ChangeDateFormat().DateConvertJpToEn(new Date());
     }
 }
