@@ -14,6 +14,32 @@ class ChangeDateFormat {
             put("03", "3rd");
             put("04", "4th");
             put("05", "5th");
+            put("06", "6th");
+            put("07", "7th");
+            put("08", "8th");
+            put("09", "9th");
+            put("10", "10th");
+            put("11", "11th");
+            put("12", "12th");
+            put("13", "13th");
+            put("14", "14th");
+            put("15", "15th");
+            put("16", "16th");
+            put("17", "17th");
+            put("18", "18th");
+            put("19", "19th");
+            put("20", "20th");
+            put("21", "21st");
+            put("22", "22nd");
+            put("23", "23rd");
+            put("24", "24th");
+            put("25", "25th");
+            put("26", "26th");
+            put("27", "27th");
+            put("28", "28th");
+            put("29", "29th");
+            put("30", "30th");
+            put("31", "31st");
         }
     };
 
@@ -55,5 +81,4 @@ class ChangeDateFormat {
         
         return result;
     }
-
 }
