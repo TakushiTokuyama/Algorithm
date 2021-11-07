@@ -6,7 +6,7 @@ import java.util.Map;
 class ChangeDateFormat {
 
     // 日付の英語表記一覧
-    private static final Map<String, String> dateNotation_En = new HashMap<>()
+    private static final Map<String, String> dateNotations_En = new HashMap<>()
     {
         {
             put("01", "1st");
@@ -44,7 +44,7 @@ class ChangeDateFormat {
     };
 
     // 月の英語表記一覧
-    private static final Map<String, String> monthNotion_En = new HashMap<>()
+    private static final Map<String, String> monthNotions_En = new HashMap<>()
     {
         {
             put("01", "Jan");
@@ -71,9 +71,9 @@ class ChangeDateFormat {
 
         Integer strLen = date.length();
 
-        result += dateNotation_En.get(date.substring(strLen - 2)) + "-";
+        result += dateNotations_En.get(date.substring(strLen - 2)) + "-";
 
-        result += monthNotion_En.get(date.substring(strLen - 4, strLen - 2)) + "-";
+        result += monthNotions_En.get(date.substring(strLen - 4, strLen - 2)) + "-";
 
         result += date.substring(0, strLen - 4);
 
