@@ -1,4 +1,4 @@
-import java.util.Date;
+import java.time.LocalDate;
 
 class Main {
     public static void main(String[] args) {
@@ -6,7 +6,6 @@ class Main {
 
         // new ReverseString().reverseString();
 
-        // new ChangeDateFormat().DateConvertJpToEn(new Date());
-
+        new ChangeDateFormat().DateConvertJpToEn(LocalDate.now());
     }
 }

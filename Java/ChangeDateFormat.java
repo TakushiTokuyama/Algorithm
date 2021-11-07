@@ -1,12 +1,13 @@
-import java.util.Date;
-import java.text.SimpleDateFormat;
+import java.util.Collections;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.HashMap;
 import java.util.Map;
 
 class ChangeDateFormat {
 
     // 日付の英語表記一覧
-    private static final Map<String, String> dateNotations_En = new HashMap<>()
+    private static final Map<String, String> dateNotations_En = Collections.unmodifiableMap( new HashMap<>()
     {
         {
             put("01", "1st");
@@ -41,10 +42,10 @@ class ChangeDateFormat {
             put("30", "30th");
             put("31", "31st");
         }
-    };
+    });
 
     // 月の英語表記一覧
-    private static final Map<String, String> monthNotions_En = new HashMap<>()
+    private static final Map<String, String> monthNotions_En = Collections.unmodifiableMap(new HashMap<>()
     {
         {
             put("01", "Jan");
@@ -60,14 +61,15 @@ class ChangeDateFormat {
             put("11", "Nov");
             put("12", "Dec");
         }
-    };
+    });
     
     // 日付書式を日本語表記から英語表記に変換
-    public String DateConvertJpToEn(Date inputDate) {
+    public String DateConvertJpToEn(LocalDate inputDate) {
 
         String result = "";
 
-        String date = new SimpleDateFormat("yyyy年MM月dd日").format(inputDate).replaceAll("[^0-9]", "");
+        // 入力データ yyyy年MM月dd日
+        String date = DateTimeFormatter.ofPattern("yyyy年MM月dd日").format(inputDate).replaceAll("[^0-9]", "");
 
         Integer strLen = date.length();
 
