@@ -15,33 +15,35 @@ public class Calender {
         LocalDate lastOfTheMonth = beginningOfTheMonth.plusMonths(1).minusDays(1);
 
         // 表示開始曜日を求める
-        Integer startIndex = beginningOfTheMonth.getDayOfWeek().getValue();
+        Integer firstDayOfWeekValue = beginningOfTheMonth.getDayOfWeek().getValue();
 
         // 環境依存しない改行コード
         String br = System.getProperty("line.separator");
         
         // calenderに表示する日付を生成する
-        List<String> numList = IntStream.range(1, lastOfTheMonth.getDayOfMonth())
-                                        .mapToObj(i -> LocalDate.parse(year + month + String.format("%02d", i),
-                                                        DateTimeFormatter.ofPattern("yyyyMMdd")).getDayOfWeek().getValue() == 6 ? String.valueOf(i) + br : String.valueOf(i))
-                                        .map(i -> i.length() == 1 ? " " + i : i)
+        List<String> viewDays = IntStream.rangeClosed(1, lastOfTheMonth.getDayOfMonth())
+                                        .mapToObj(i -> String.format("%02d", i))
+                                        .map(i -> LocalDate.parse(year + month + i,
+                                                    DateTimeFormatter.ofPattern("yyyyMMdd")).getDayOfWeek().getValue() == 6 ?  i + br : i)
                                         .collect(Collectors.toList());
 
         StringBuilder sb = new StringBuilder(42);
 
-        sb.append(addSpace(startIndex));
+        sb.append(addSpace(firstDayOfWeekValue));
 
-        numList.forEach(day -> sb.append(day));
+        // 先頭の0を削除
+        viewDays.stream().map(day -> day.startsWith("0") ? "  " + day.substring(1) : " " + day)
+                         .forEach(day -> sb.append(day));
 
         System.out.print(sb.toString());
     }
 
     // 空白スペースを追加
-    private String addSpace(Integer startIndex) {
+    private String addSpace(Integer firstDayOfWeekValue) {
         String str = "";
-        if(startIndex != 7){
-            for(int i = 0; i < startIndex; i++){
-                str += "  ";
+        if(firstDayOfWeekValue != 7){
+            for(int i = 0; i < firstDayOfWeekValue; i++){
+                str += "   ";
             }
         }
         return str;
