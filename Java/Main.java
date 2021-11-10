@@ -6,8 +6,8 @@ class Main {
 
         // new ReverseString().reverseString();
 
-        new ChangeDateFormat().DateConvertJpToEn(LocalDate.now());
+        // new ChangeDateFormat().DateConvertJpToEn(LocalDate.now());
 
-        new Calender().Create("2021", "10");
+        new Calender().Create();
     }
 }
