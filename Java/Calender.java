@@ -15,7 +15,7 @@ public class Calender {
     private String inputMonth;
 
     // 曜日
-    private String[] dayOfWeeks = {"日", "月", "火", "水", "木", "金", "土"};
+    private static String[] dayOfWeeks = {"日", "月", "火", "水", "木", "金", "土"};
 
     // 環境依存しない改行コード
     private static final String br = System.getProperty("line.separator");
