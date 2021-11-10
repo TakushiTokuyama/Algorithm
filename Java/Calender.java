@@ -14,6 +14,9 @@ public class Calender {
     // 入力月
     private String inputMonth;
 
+    // 曜日
+    private String[] dayOfWeeks = {"日", "月", "火", "水", "木", "金", "土"};
+
     // 環境依存しない改行コード
     private static final String br = System.getProperty("line.separator");
 
@@ -57,6 +60,12 @@ public class Calender {
         viewDays.stream().map(day -> day.startsWith("0") ? "  " + day.substring(1) : " " + day)
                 .forEach(day -> sb.append(day));
 
+        for (String dayOfWeek : dayOfWeeks) {
+            System.out.print(" " + dayOfWeek);
+        }
+
+        System.out.print(br);
+
         System.out.print(sb.toString() + br);
     }
 
@@ -84,7 +93,9 @@ public class Calender {
 
     // 空白スペースを追加
     private String addSpace(Integer firstDayOfWeekValue) {
+
         String str = "";
+
         if (firstDayOfWeekValue != 7) {
             for (int i = 0; i < firstDayOfWeekValue; i++) {
                 str += "   ";
